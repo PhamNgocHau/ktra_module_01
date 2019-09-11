@@ -6,25 +6,39 @@
 </head>
 <body>
 <script>
-    let brray = [
-        [1,2,3],
-        [4,5,6],
-        [7,8,9]
-    ]
+    let row = 5;
+    let column = 5;
+    let arr = [];
+    let total = 0;
 
-    function sumArray(array){
-        let sum=0;
-        for (let i = 0 ; i < array.length ; i++){
-            for (let j = 0 ; j < array.length ; j++){
-                if(i === j ){
-                  sum += array[i][j];
-                }
-            }
+    for (let i = 0; i < row; i++) {
+        arr[i] = new Array();
+        for (let j = 0; j < column; j++) {
+            let e = Math.floor(Math.random() * 10);
+            arr[i][j] = e;
+            total += check(i,j,arr);
         }
-        return sum;
     }
 
-    document.write(sumArray(brray));
+    function print(a , b , brray) {
+        for (let i = 0; i < a; i++) {
+            for (let j = 0; j < b; j++) {
+                document.write(brray[i][j]+' ');
+            }
+            document.write('<br>');
+        }
+    }
+
+    function check(a , b , brray) {
+        if( a === b ){
+            return brray[a][b];
+        }
+        return 0;
+    }
+
+    print(row , column , arr);
+    document.write('Sum duong cheo chinh : '+ total);
+
 </script>
 </body>
 </html>
